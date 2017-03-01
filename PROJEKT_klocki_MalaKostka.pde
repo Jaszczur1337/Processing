@@ -1,22 +1,107 @@
 class MalaKostka
 {
   int rotacjaX,rotacjaY,rotacjaZ,wielkosc;
+  color frontowy,lewy,prawy,dolny,gorny,tylny,tymczasowy;
   MalaKostka(int duzosc)
   {
    wielkosc=duzosc;
+   frontowy=color(255,0,0);
+   gorny=color (128,128,0);
+   tylny=color(0,255,0);
+   dolny=color(0,0,255);
+   lewy=color(0,128,128);
+   prawy=color(255,255,255);
   }
-  Kordy kordy,startowekordy;
+  Kordy kordy;
+  void rotacjalewa(char kierunek)
+  {
+    if(kierunek=='r')
+    {
+      tymczasowy=frontowy;
+      frontowy=gorny;
+      gorny=tylny;
+      tylny=dolny;
+      dolny=tymczasowy;
+  }
+  else
+  rotacjaprawa('r');
+  }
+  void rotacjafrontowa(char kierunek)
+  {
+   if(kierunek=='r')
+   {
+     tymczasowy=lewy;
+    lewy=dolny;
+    dolny=prawy;
+    prawy=gorny;
+    gorny=tymczasowy;
+   }
+   else
+   rotacjatylna('r');
+  }
+  void rotacjadolna(char kierunek)
+  {
+   if(kierunek=='r')
+   {  
+     tymczasowy=frontowy;
+     frontowy=lewy;
+     lewy=tylny;
+     tylny=prawy;
+     prawy=tymczasowy;
+    
+   }
+   else
+   rotacjagorna('r');
+  }
+  void rotacjaprawa(char kierunek)
+  {
+   if(kierunek=='r')
+   {
+    tymczasowy=frontowy;
+    frontowy=dolny;
+    dolny=tylny;
+    tylny=gorny;
+    gorny=tymczasowy;
+   }
+   else
+   rotacjalewa('r');
+  }
+  void rotacjagorna(char kierunek)
+  {
+   if(kierunek=='r')
+   {
+    tymczasowy=frontowy;
+    frontowy=prawy;
+    prawy=tylny;
+    tylny=lewy;
+    lewy=tymczasowy;
+   }
+   else
+   rotacjadolna('r');
+  }
+  void rotacjatylna(char kierunek)
+  {
+   if(kierunek=='r')
+   {
+    tymczasowy=prawy;
+    prawy=dolny;
+    dolny=lewy;
+    lewy=gorny;
+    gorny=tymczasowy;
+   }
+   else
+   rotacjafrontowa('r');
+  }
+    
+  
    void Stworz(Kordy kordy)
   {
 
   pushMatrix();
-  
   translate(kordy.x,kordy.y,kordy.z);
-rotateX(radians(rotacjaX));
-  rotateY(radians(rotacjaY));
-  rotateZ(radians(rotacjaZ));
     beginShape(QUADS);
-  fill(255,0,0);
+    
+  fill(frontowy);
   vertex(-wielkosc, -wielkosc,  wielkosc);
   vertex( wielkosc, -wielkosc,  wielkosc);
   vertex( wielkosc,  wielkosc,  wielkosc);
@@ -24,7 +109,7 @@ rotateX(radians(rotacjaX));
   endShape();
   // Back
   beginShape(QUADS);
-  fill(255,128,0);
+  fill(tylny);
   vertex( wielkosc, -wielkosc, -wielkosc);
   vertex(-wielkosc, -wielkosc, -wielkosc);
   vertex(-wielkosc,  wielkosc, -wielkosc);
@@ -32,7 +117,7 @@ rotateX(radians(rotacjaX));
   endShape();
   // Bottom
   beginShape(QUADS);
-  fill(0,255,0);
+  fill(dolny);
   vertex(-wielkosc,  wielkosc,  wielkosc);
   vertex( wielkosc,  wielkosc,  wielkosc);
   vertex( wielkosc,  wielkosc, -wielkosc);
@@ -40,7 +125,7 @@ rotateX(radians(rotacjaX));
   endShape();
   // Top
   beginShape(QUADS);
-  fill(255,255,0);
+  fill(gorny);
   vertex(-wielkosc, -wielkosc, -wielkosc);
   vertex( wielkosc, -wielkosc, -wielkosc);
   vertex( wielkosc, -wielkosc,  wielkosc);
@@ -48,7 +133,7 @@ rotateX(radians(rotacjaX));
   endShape();
   // Right
   beginShape(QUADS);
-  fill(255,255,255);
+  fill(prawy);
   vertex( wielkosc, -wielkosc,  wielkosc);
   vertex( wielkosc, -wielkosc, -wielkosc);
   vertex( wielkosc,  wielkosc, -wielkosc);
@@ -56,7 +141,7 @@ rotateX(radians(rotacjaX));
   endShape();
   // Left
   beginShape(QUADS);
-  fill(0,128,128);
+  fill(lewy);
   vertex(-wielkosc, -wielkosc, -wielkosc);
   vertex(-wielkosc, -wielkosc,  wielkosc);
   vertex(-wielkosc,  wielkosc,  wielkosc);
@@ -65,4 +150,5 @@ rotateX(radians(rotacjaX));
     popMatrix();
    
   }
+
 };

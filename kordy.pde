@@ -16,4 +16,8 @@ class Kordy
    y=igreg;
    z=zet;
   }
+  void wypisz()
+  {
+    print(x+" "+y+" "+z+"\n");
+  }
 };
