@@ -101,27 +101,27 @@ sciana[algorytmmanager.front].obracanie(kierunki);
   if(key=='l')
   {
 
-sciana[1].obracanie(kierunki);
+sciana[algorytmmanager.left].obracanie(kierunki);
   }
   if(key=='r')
   {
 
-  sciana[2].obracanie(kierunki);
+  sciana[algorytmmanager.right].obracanie(kierunki);
   }
     if(key=='b')
   {
 
-  sciana[3].obracanie(kierunki);
+  sciana[algorytmmanager.back].obracanie(kierunki);
   }
     if(key=='u')
   {
 
-  sciana[4].obracanie(kierunki);
+  sciana[algorytmmanager.up].obracanie(kierunki);
   }
     if(key=='d')
   {
 
-  sciana[5].obracanie(kierunki);
+  sciana[algorytmmanager.down].obracanie(kierunki);
   }
   if(key=='x')
   restart();

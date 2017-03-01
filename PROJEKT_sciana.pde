@@ -3,9 +3,9 @@ class Sciana
   char rodzajsciany;
   Kordy kordycom[]=new Kordy[9];
   int pomarancze[]=new int[9];
-  void przypisywanie()
+  void przypisywanie() // Do każdej ściany przypisane jest 9 kosteczek na podstawie ich pozycji
   {
-    if(rodzajsciany=='f')
+    if(rodzajsciany=='f') 
     {
       kordycom[0]=new Kordy(-20,-20,20);
       kordycom[1]=new Kordy(0,-20,20);
@@ -167,7 +167,7 @@ for(int i=0;i<9;i++)
  kosteczka[pomarancze[i]].rotacjadolna(kierunek);
 }
  }
- if(kierunek=='r')
+ if(kierunek=='r') // Przy obracaniu w prawo, lewa-górna kosteczka przeskakuje na pozycje prawej górnej itd.
  {
  kosteczka[pomarancze[0]].kordy=kordycom[2];
    kosteczka[pomarancze[1]].kordy=kordycom[5];
