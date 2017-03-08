@@ -42,7 +42,18 @@ void BialyKrzyz()
 {
  if(kosteczka[1].frontowy==-1)
  {
-  if(kosteczka[1].kordy.compare(
+   print(kosteczka[1].kordy.x+"\n");
+   
+  if(kosteczka[1].kordy.compare('x',-20))
+ {
+   
+   while(kosteczka[1].gorny!=-1)
+  {
+    
+ sciana[left].obracanie('r');
+ 
+  }
+ }
  }
 }
   

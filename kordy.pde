@@ -12,13 +12,13 @@ class Kordy
   }
   boolean compare(char wspolrzedna,int kordy)
   {
-    if(wspolrzedna==x || wspolrzedna==y || wspolrzedna==z)
+    if(wspolrzedna=='x' || wspolrzedna=='y' || wspolrzedna=='z')
     {
-     if(wspolrzedna==x && kordy==x)
+     if(wspolrzedna=='x' && kordy==x)
      return true;
-     if(wspolrzedna==y && kordy==y)
+     if(wspolrzedna=='y' && kordy==y)
      return true;
-     if(wspolrzedna==z && kordy==z)
+     if(wspolrzedna=='z' && kordy==z)
      return true;
     }
     return false;
