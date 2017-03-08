@@ -17,7 +17,7 @@ void draw(){
  translate(width/2,height/2);
 
 
- 
+ algorytmmanager.BialyKrzyz();
 
 for(int i=0;i<6;i++)
 sciana[i]=new Sciana();
@@ -28,7 +28,8 @@ sciana[2].rodzajsciany='r';
 sciana[3].rodzajsciany='b';
 sciana[4].rodzajsciany='u';
 sciana[5].rodzajsciany='d';
-
+kosteczka[1].wielkosc=15;
+print(kosteczka[1].frontowy+"\n");
 obracaniekamery();
 
 rotateX(radians(x));

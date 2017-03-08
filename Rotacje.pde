@@ -38,5 +38,12 @@ class Algorytmy
     front=4;down=0;back=5;up=3;
     }  
 }
+void BialyKrzyz()
+{
+ if(kosteczka[1].frontowy==-1)
+ {
+  if(kosteczka[1].kordy.compare(
+ }
+}
   
 };

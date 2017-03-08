@@ -6,11 +6,11 @@ class MalaKostka
   {
    wielkosc=duzosc;
    frontowy=color(255,0,0);
-   gorny=color (128,128,0);
-   tylny=color(0,255,0);
-   dolny=color(0,0,255);
-   lewy=color(0,128,128);
-   prawy=color(255,255,255);
+   prawy=color (0,0,255);
+   tylny=color(255,128,0);
+   dolny=color(255,255,0);
+   lewy=color(0,255,0);
+   gorny=color(255,255,255);
   }
   Kordy kordy;
   void rotacjalewa(char kierunek)
