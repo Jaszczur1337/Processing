@@ -36,7 +36,8 @@ rotateX(radians(x));
 rotateY(radians(y));
 
 tworzkostke();
-algorytmmanager.BialyKrzyz();
+
+
 } 
  void obracaniekamery()
  {
@@ -94,6 +95,11 @@ void keyPressed(){
   }
   if(keyCode==BACKSPACE)
   kierunki='l';
+  if(key=='q')
+  {
+    algorytmmanager.BialyKrzyz(1);
+  }
+  
   
   if(key=='f')
   {
@@ -128,6 +134,7 @@ sciana[algorytmmanager.left].obracanie(kierunki);
   }
   if(key=='x')
   restart();
+
 }
 
 void restart()

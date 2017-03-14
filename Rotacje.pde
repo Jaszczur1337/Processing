@@ -38,22 +38,20 @@ class Algorytmy
     front=4;down=0;back=5;up=3;
     }  
 }
-void BialyKrzyz()
+void BialyKrzyz(int numerkostki)
 {
- if(kosteczka[1].frontowy==-1)
+ if(kosteczka[numerkostki].lewy!=#ffffff || kosteczka[numerkostki].prawy!=#ffffff)
  {
-   print(kosteczka[1].kordy.x+"\n");
-   
-  if(kosteczka[1].kordy.compare('x',-20))
- {
-   
-   while(kosteczka[1].gorny!=-1)
+  if(kosteczka[numerkostki].lewy!=#ffffff && kosteczka[numerkostki].kordy.compare('x',-20) &&   )
   {
-    
- sciana[left].obracanie('r');
- 
+   while(kosteczka[numerkostki].gorny!=#ffffff)   
+ sciana[left].obracanie('r'); 
   }
- }
+  if(kosteczka[numerkostki].prawy!=#ffffff && kosteczka[numerkostki].kordy.compare('x',20))
+  {
+   while(kosteczka[numerkostki].gorny!=#ffffff)   
+ sciana[right].obracanie('r'); 
+  }
  }
 }
   

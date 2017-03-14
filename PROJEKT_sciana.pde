@@ -190,6 +190,7 @@ for(int i=0;i<9;i++)
    kosteczka[pomarancze[8]].kordy=kordycom[2];
   }
    kierunki='r';
+   
   }
   
   
