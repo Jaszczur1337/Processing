@@ -1,5 +1,5 @@
-int x,y;
-int i; 
+int kamerax,kameray;
+int i,t2,t1; 
 char keycode,kierunki;
 boolean juzbylo;
 MalaKostka kosteczka[]=new MalaKostka[27];
@@ -32,8 +32,8 @@ kosteczka[1].wielkosc=15;
 
 obracaniekamery();
 
-rotateX(radians(x));
-rotateY(radians(y));
+rotateX(radians(kamerax));
+rotateY(radians(kameray));
 
 tworzkostke();
 
@@ -44,27 +44,27 @@ tworzkostke();
    
    if(keycode=='a')
    {
-     y--;
-     if(y<-360)
-     y=0;
+     kameray--;
+     if(kameray<-360)
+    kameray=0;
    }
    if(keycode=='d')
    {
-    y++; 
-    if(y>360)
-     y=0;
+    kameray++; 
+    if(kameray>360)
+     kameray=0;
    }
    if(keycode=='w')
    {
-     x++;
-     if(x>360)
-     x=0;
+     kamerax++;
+     if(kamerax>360)
+     kamerax=0;
    }
    if(keycode=='s')
    {
-    x--; 
-   if(x<-360)
-     x=0;  
+    kamerax--; 
+   if(kamerax<-360)
+     kamerax=0;  
  }
  }
  void keyReleased()
@@ -170,7 +170,8 @@ kosteczka[21].kordy= new Kordy(-20,0,20);
  kosteczka[24].kordy= new Kordy(-20,20,20);  
 kosteczka[25].kordy= new Kordy(0,20,20);
 kosteczka[26].kordy= new Kordy(20,20,20);
-
+kamerax=0;
+kameray=0;
 }
 void tworzkostke()
 {

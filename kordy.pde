@@ -3,14 +3,14 @@ class Kordy
   int x;
   int y;
   int z;
-  boolean compare(Kordy kordy)
+  boolean compare(Kordy kordy) // sprawdzanie czy wszystkie koordynanty sie zgadzają
   {
     if(x==kordy.x && y==kordy.y && z==kordy.z)
     return true;
     else
     return false;
   }
-  boolean compare(char wspolrzedna,int kordy)
+  boolean compare(char wspolrzedna,int kordy)//sprawdzanie czy jeden kord sie zgadza
   {
     if(wspolrzedna=='x' || wspolrzedna=='y' || wspolrzedna=='z')
     {
