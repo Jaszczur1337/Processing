@@ -10,6 +10,13 @@ class Kordy
     else
     return false;
   }
+  boolean compare(int iks, int igreg,int zet) // sprawdzanie czy wszystkie koordynanty sie zgadzają
+  {
+    if(x==iks && y==igreg && z==zet)
+    return true;
+    else
+    return false;
+  }
   boolean compare(char wspolrzedna,int kordy)//sprawdzanie czy jeden kord sie zgadza
   {
     if(wspolrzedna=='x' || wspolrzedna=='y' || wspolrzedna=='z')

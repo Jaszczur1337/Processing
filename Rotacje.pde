@@ -57,6 +57,8 @@ void BialyKrzyz(int numerkostki)
    }
    if(kosteczka[numerkostki].lewy==#ffffff)
    {
+     while(!kosteczka[numerkostki].kordy.compare(-20,-20,0))
+     Interpreter("l");
      kameray=135;
      przypisywanie();
    Interpreter("riufiui");
@@ -70,6 +72,16 @@ void BialyKrzyz(int numerkostki)
    {
     while(kosteczka[numerkostki].gorny!=#ffffff)
     Interpreter("r");
+   }
+   if(kosteczka[numerkostki].prawy==#ffffff)
+   {
+     while(!kosteczka[numerkostki].kordy.compare(20,-20,0))
+     Interpreter("r");
+     kameray=-42;
+     przypisywanie();
+   Interpreter("riufiui");
+   kameray=0;
+   redraw();
    }
   }
   if(kosteczka[numerkostki].kordy.compare('z',-20))
@@ -94,6 +106,9 @@ void BialyKrzyz(int numerkostki)
 void Interpreter(String s) // uzycie Interpreter("fir") obróci frontową ścianę w lewo, i prawą w prawo
 {
   char k='r';
+  redraw();
+  delay(1000);
+
   for(int i=0;i<s.length();i++)
   {
     if(i+1<s.length())
