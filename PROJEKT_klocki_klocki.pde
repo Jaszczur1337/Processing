@@ -8,7 +8,8 @@ Algorytmy algorytmmanager;
 
 
 void setup(){
-  
+  kameray=0;
+  kamerax=0;
 lastTime=millis();
 size(800,600,P3D);
 background(205,205,205);
@@ -86,22 +87,26 @@ void keyPressed(){
   if(keyCode==LEFT)
   {
   keycode='a';
+  algorytmmanager.przypisywanie();
   redraw();
 
   }
   if(keyCode==RIGHT)
   {
   keycode='d';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==UP)
   {
   keycode='w';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==DOWN)
   {
   keycode='s';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==BACKSPACE)
