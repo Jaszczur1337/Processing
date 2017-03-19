@@ -1,76 +1,82 @@
-int x,y;
-int i; 
+int kamerax,kameray;
+int i,lastTime,nowtime; 
 char keycode,kierunki;
 boolean juzbylo;
 MalaKostka kosteczka[]=new MalaKostka[27];
 Sciana sciana[]=new Sciana[6];
 Algorytmy algorytmmanager;
+
+
 void setup(){
+  
+lastTime=millis();
 size(800,600,P3D);
 background(205,205,205);
 restart(); 
 kierunki='r';
 algorytmmanager=new Algorytmy();
-}
-void draw(){
- background(255,255,255);
- translate(width/2,height/2);
-
-
- 
 
 for(int i=0;i<6;i++)
 sciana[i]=new Sciana();
-algorytmmanager.przypisywanie();
 sciana[0].rodzajsciany='f';
 sciana[1].rodzajsciany='l';
 sciana[2].rodzajsciany='r';
 sciana[3].rodzajsciany='b';
 sciana[4].rodzajsciany='u';
 sciana[5].rodzajsciany='d';
-kosteczka[1].wielkosc=15;
+noLoop();
+}
+void draw(){
+
+
+ background(255,255,255);
+ translate(width/2,height/2);
+algorytmmanager.przypisywanie();
+
+kosteczka[9].wielkosc=15;
 
 obracaniekamery();
 
-rotateX(radians(x));
-rotateY(radians(y));
+rotateX(radians(kamerax));
+rotateY(radians(kameray));
 
 tworzkostke();
-
-
+  
+  
 } 
  void obracaniekamery()
  {
    
    if(keycode=='a')
    {
-     y--;
-     if(y<-360)
-     y=0;
+     kameray-=3;
+     if(kameray<-360)
+    kameray=0;
    }
    if(keycode=='d')
    {
-    y++; 
-    if(y>360)
-     y=0;
+    kameray+=3; 
+    if(kameray>360)
+     kameray=0;
    }
    if(keycode=='w')
    {
-     x++;
-     if(x>360)
-     x=0;
+     kamerax+=3;
+     if(kamerax>360)
+     kamerax=0;
    }
    if(keycode=='s')
    {
-    x--; 
-   if(x<-360)
-     x=0;  
+    kamerax-=3; 
+   if(kamerax<-360)
+     kamerax=0;  
  }
  }
  void keyReleased()
  {
   
   keycode='p';
+
   
  }
 
@@ -80,25 +86,33 @@ void keyPressed(){
   if(keyCode==LEFT)
   {
   keycode='a';
+  redraw();
+
   }
   if(keyCode==RIGHT)
   {
   keycode='d';
+redraw();
   }
   if(keyCode==UP)
   {
   keycode='w';
+redraw();
   }
   if(keyCode==DOWN)
   {
   keycode='s';
+redraw();
   }
   if(keyCode==BACKSPACE)
   kierunki='l';
   if(key=='q')
   {
-    algorytmmanager.BialyKrzyz(1);
-  }
+    
+ algorytmmanager.BialyKrzyz(9);
+
+
+}
   
   
   if(key=='f')
@@ -106,35 +120,44 @@ void keyPressed(){
 
 sciana[algorytmmanager.front].obracanie(kierunki);
 
+
   }
   if(key=='l')
   {
 
 sciana[algorytmmanager.left].obracanie(kierunki);
+
   }
   if(key=='r')
   {
 
   sciana[algorytmmanager.right].obracanie(kierunki);
+
   }
     if(key=='b')
   {
 
   sciana[algorytmmanager.back].obracanie(kierunki);
+
   }
     if(key=='u')
   {
 
   sciana[algorytmmanager.up].obracanie(kierunki);
+
   }
     if(key=='d')
   {
 
   sciana[algorytmmanager.down].obracanie(kierunki);
+
   }
   if(key=='x')
+  {
+    
   restart();
 
+  }
 }
 
 void restart()
@@ -170,7 +193,8 @@ kosteczka[21].kordy= new Kordy(-20,0,20);
  kosteczka[24].kordy= new Kordy(-20,20,20);  
 kosteczka[25].kordy= new Kordy(0,20,20);
 kosteczka[26].kordy= new Kordy(20,20,20);
-
+kamerax=0;
+kameray=0;
 }
 void tworzkostke()
 {
