@@ -4,23 +4,6 @@ class Algorytmy
   void przypisywanie() // Dzięki temu, klikając 'f' zawsze obracasz frontową ścianę
   {
     print(kameray+"\n");
-    // Oś Y
-    if(kameray==0)
-    {
-    front=0;left=1;back=3;right=2;
-    }
-    if(kameray==90 || kameray==-270)
-    {
-    front=1;left=3;back=2;right=0;
-    }
-    if(kameray==180 || kameray==-180)
-    {
-    front=3;left=2;back=0;right=1;
-    }
-    if(kameray==270 || kameray==-90)
-    {
-    front=2;left=0;back=1;right=3;
-    }
     // Oś X
     if(kamerax==0)
     {
@@ -37,7 +20,25 @@ class Algorytmy
     if(kamerax==270 || kamerax==-90)
     {
     front=4;down=0;back=5;up=3;
-    }  
+    }
+    // Oś Y
+    if(kameray>-45 && kameray<45)
+    {
+    front=0;left=1;back=3;right=2;
+    }
+    if((kameray>=45 && kameray<135) || (kameray<=-225 && kameray>-315))
+    {
+    front=1;left=3;back=2;right=0;
+    }
+    if((kameray>=135 && kameray<225) || (kameray<=-135 && kameray>-225))
+    {
+    front=3;left=2;back=0;right=1;
+    }
+    if((kameray>=225 && kameray<315) || (kameray<=-45 && kameray>-135))
+    {
+    front=2;left=0;back=1;right=3;
+    }
+      
 }
 void obracaniekamero()
 {
@@ -47,32 +48,117 @@ kameray=0;
 }
 void BialyKrzyz(int numerkostki)
 {
-  
- if(kosteczka[numerkostki].lewy!=#ffffff || kosteczka[numerkostki].prawy!=#ffffff) // warunki, no czaicie co nie?
- {
-  if(kosteczka[numerkostki].lewy!=#ffffff && kosteczka[numerkostki].kordy.compare('x',-20))
-  { 
-   
-   while(kosteczka[numerkostki].gorny!=#ffffff)
-   {
-Interpreter("l"); 
- }
-
-  }
-  if(kosteczka[numerkostki].prawy!=#ffffff && kosteczka[numerkostki].kordy.compare('x',20))
+ kosteczka[numerkostki].wielkosc=15;
+ redraw();
+if(kosteczka[numerkostki].gorny!=#ffffff)
+{
+  print(numerkostki+"/n");
+  if(kosteczka[numerkostki].kordy.compare('x',-20))
   {
-   while(kosteczka[numerkostki].gorny!=#ffffff)  
-   {
- Interpreter("r"); 
-
-   }  
+    if(szukaniepopozycji(-20,-20,0)!=1 && szukaniepopozycji(-20,-20,0)!=9 && szukaniepopozycji(-20,-20,0)!=11 && szukaniepopozycji(-20,-20,0)!=19)
+    {
+         if(kosteczka[numerkostki].lewy!=#ffffff)
+           {
+            while(kosteczka[numerkostki].gorny!=#ffffff)
+                Interpreter("l");
+           }
+         if(kosteczka[numerkostki].lewy==#ffffff)
+           {
+            while(!kosteczka[numerkostki].kordy.compare(-20,-20,0))
+                 Interpreter("l");
+           kameray=135;
+           przypisywanie();
+           Interpreter("riufiui");
+           kameray=0;
+           redraw();
+           }
+   }
+   else
+    {
+      while(szukaniepopozycji(-20,-20,0)==1 || szukaniepopozycji(-20,-20,0)==9 || szukaniepopozycji(-20,-20,0)==11 || szukaniepopozycji(-20,-20,0)==19)
+      Interpreter("u");
+      BialyKrzyz(numerkostki);
+    }
 }
+
+
+  if(kosteczka[numerkostki].kordy.compare('x',20)  )
+  {
+    if(szukaniepopozycji(20,-20,0)!=1 && szukaniepopozycji(20,-20,0)!=9 && szukaniepopozycji(20,-20,0)!=11 && szukaniepopozycji(20,-20,0)!=19)
+    {
+         if(kosteczka[numerkostki].prawy!=#ffffff)
+           {
+              while(kosteczka[numerkostki].gorny!=#ffffff)
+                    Interpreter("r");
+           }
+         if(kosteczka[numerkostki].prawy==#ffffff)
+           {
+             while(!kosteczka[numerkostki].kordy.compare(20,-20,0))
+                    Interpreter("r");
+             kameray=-42;
+             przypisywanie();
+             Interpreter("riufiui");
+             kameray=0;
+             redraw();
+           }
+    }
+     else
+    {
+        while(szukaniepopozycji(20,-20,0)==1 || szukaniepopozycji(20,-20,0)==9 || szukaniepopozycji(20,-20,0)==11 || szukaniepopozycji(20,-20,0)==19)
+            Interpreter("u");
+        BialyKrzyz(numerkostki);
+    }
   }
- 
+
+  if(kosteczka[numerkostki].kordy.compare('z',-20))
+  {
+   if(szukaniepopozycji(0,-20,-20)!=1 && szukaniepopozycji(0,-20,-20)!=9 && szukaniepopozycji(0,-20,-20)!=11 && szukaniepopozycji(0,-20,-20)==19)
+     {
+       if(kosteczka[numerkostki].tylny!=#ffffff)
+         {
+            while(kosteczka[numerkostki].gorny!=#ffffff)
+            Interpreter("b");
+         }
+       if(kosteczka[numerkostki].tylny==#ffffff)
+         {
+            while(!kosteczka[numerkostki].kordy.compare(0,-20,-20))
+             {
+               kameray=180;
+               Interpreter("f");
+             }
+             kameray=225;
+             przypisywanie();
+             Interpreter("riufiui");
+             kameray=0;
+             redraw();
+         }
+   }
+   else
+    {
+        while(szukaniepopozycji(0,-20,-20)==1 || szukaniepopozycji(0,-20,-20)==9 || szukaniepopozycji(0,-20,-20)==11 || szukaniepopozycji(0,-20,-20)==19)
+            Interpreter("u");
+         
+        BialyKrzyz(numerkostki);
+    }
+  }
+  if(kosteczka[numerkostki].kordy.compare('z',20))
+  {
+   if(kosteczka[numerkostki].frontowy!=#ffffff)
+   {
+    while(kosteczka[numerkostki].gorny!=#ffffff)
+    Interpreter("f");
+   }
+  }
+}
+ kosteczka[numerkostki].wielkosc=10;
+
 }
 void Interpreter(String s) // uzycie Interpreter("fir") obróci frontową ścianę w lewo, i prawą w prawo
 {
   char k='r';
+  redraw();
+  delay(1000);
+
   for(int i=0;i<s.length();i++)
   {
     if(i+1<s.length())

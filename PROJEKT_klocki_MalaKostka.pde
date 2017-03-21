@@ -13,6 +13,7 @@ class MalaKostka
    gorny=color(255,255,255);
   }
   Kordy kordy;
+  
   void rotacjalewa(char kierunek)
   {
     if(kierunek=='r')
@@ -98,6 +99,7 @@ class MalaKostka
   {
 
   pushMatrix();
+  if(kordy!=null)
   translate(kordy.x,kordy.y,kordy.z);
     beginShape(QUADS);
     

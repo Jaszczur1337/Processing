@@ -81,7 +81,8 @@ class Sciana
     
    for(int i=0;i<27;i++)
    {
-
+if(kosteczka[i].kordy!=null)
+{
     if(kosteczka[i].kordy.compare(kordycom[0]))
     {
       pomarancze[0]=i; 
@@ -118,6 +119,7 @@ class Sciana
     {
       pomarancze[8]=i;
     }
+}
    }
     
     }  

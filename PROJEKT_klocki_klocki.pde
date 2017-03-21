@@ -8,7 +8,8 @@ Algorytmy algorytmmanager;
 
 
 void setup(){
-  
+  kameray=0;
+  kamerax=0;
 lastTime=millis();
 size(800,600,P3D);
 background(205,205,205);
@@ -33,7 +34,7 @@ void draw(){
  translate(width/2,height/2);
 algorytmmanager.przypisywanie();
 
-kosteczka[9].wielkosc=15;
+
 
 obracaniekamery();
 
@@ -86,22 +87,26 @@ void keyPressed(){
   if(keyCode==LEFT)
   {
   keycode='a';
+  algorytmmanager.przypisywanie();
   redraw();
 
   }
   if(keyCode==RIGHT)
   {
   keycode='d';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==UP)
   {
   keycode='w';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==DOWN)
   {
   keycode='s';
+  algorytmmanager.przypisywanie();
 redraw();
   }
   if(keyCode==BACKSPACE)
@@ -109,7 +114,10 @@ redraw();
   if(key=='q')
   {
     
- algorytmmanager.BialyKrzyz(9);
+     algorytmmanager.BialyKrzyz(1);
+     algorytmmanager.BialyKrzyz(9);
+     algorytmmanager.BialyKrzyz(11);
+ algorytmmanager.BialyKrzyz(19);
 
 
 }
@@ -166,36 +174,50 @@ void restart()
 {
  kosteczka[i]=new MalaKostka(10); 
 }
-kosteczka[0].kordy= new Kordy(-20,-20,-20);
-kosteczka[1].kordy= new Kordy(0,-20,-20);
+//kosteczka[0].kordy= new Kordy(-20,-20,-20);
+kosteczka[1].kordy= new Kordy(0,-20,-20);/*
 kosteczka[2].kordy= new Kordy(20,-20,-20);
 kosteczka[3].kordy= new Kordy(-20,0,-20);
 kosteczka[4].kordy= new Kordy(0,0,-20);
 kosteczka[5].kordy= new Kordy(20,0,-20);
 kosteczka[6].kordy= new Kordy(-20,20,-20);
 kosteczka[7].kordy= new Kordy(0,20,-20);
-kosteczka[8].kordy= new Kordy(20,20,-20);
+kosteczka[8].kordy= new Kordy(20,20,-20);*/
 kosteczka[9].kordy= new Kordy(-20,-20,0);
-kosteczka[10].kordy= new Kordy(0,-20,0);
-kosteczka[11].kordy= new Kordy(20,-20,0);
+//kosteczka[10].kordy= new Kordy(0,-20,0);
+kosteczka[11].kordy= new Kordy(20,-20,0);/*
 kosteczka[12].kordy= new Kordy(-20,0,0);
 kosteczka[13].kordy= new Kordy(0,0,0);
 kosteczka[14].kordy= new Kordy(20,0,0);
 kosteczka[15].kordy= new Kordy(-20,20,0);
 kosteczka[16].kordy= new Kordy(0,20,0);
 kosteczka[17].kordy= new Kordy(20,20,0);
- kosteczka[18].kordy= new Kordy(-20,-20,20);
+ kosteczka[18].kordy= new Kordy(-20,-20,20);*/
  kosteczka[19].kordy= new Kordy(0,-20,20);
- kosteczka[20].kordy= new Kordy(20,-20,20);
+/* kosteczka[20].kordy= new Kordy(20,-20,20);
 kosteczka[21].kordy= new Kordy(-20,0,20);
  kosteczka[22].kordy= new Kordy(0,0,20);
  kosteczka[23].kordy= new Kordy(20,0,20); 
  kosteczka[24].kordy= new Kordy(-20,20,20);  
 kosteczka[25].kordy= new Kordy(0,20,20);
-kosteczka[26].kordy= new Kordy(20,20,20);
+kosteczka[26].kordy= new Kordy(20,20,20);*/
 kamerax=0;
 kameray=0;
 }
+int szukaniepopozycji(int x,int y,int z)
+{
+ for(int i=0;i<27;i++)
+ {
+  if(kosteczka[i].kordy.compare(x,y,z))
+  {
+print(i+"\n");
+    return i;
+  
+}
+ }
+ return -1;
+}
+
 void tworzkostke()
 {
   for(int i=0;i<27;i++)
