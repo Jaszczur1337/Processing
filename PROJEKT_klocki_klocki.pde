@@ -121,7 +121,8 @@ redraw();
 
 
 }
-  
+  if(key=='g')
+  algorytmmanager.Shuffle();
   
   if(key=='f')
   {
@@ -204,13 +205,13 @@ kosteczka[26].kordy= new Kordy(20,20,20);
 kamerax=0;
 kameray=0;
 }
-int szukaniepopozycji(int x,int y,int z)
+int szukaniepopozycji(int x,int y,int z,int numerkostki)
 {
  for(int i=0;i<27;i++)
  {
   if(kosteczka[i].kordy.compare(x,y,z))
   {
-print(i+"\n");
+  if(i!=numerkostki)
     return i;
   
 }
