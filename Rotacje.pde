@@ -194,7 +194,21 @@ void BialyKrzyz()
 }
 void BialeRogi()
 {
-while(kosteczka[24].
+  if(!kosteczka[24].kordy.compare(-20,20,20))
+  {
+    if(kosteczka[24].kordy.compare('y',-20))
+    {
+while(!kosteczka[24].kordy.compare('x',-20) || !kosteczka[24].kordy.compare('z',20))
+Interpreter("u",500);
+kameray=42;
+while(kosteczka[24].dolny!=#ffffff)
+{
+Interpreter("luliui",1000);
+print("koniec");
+}
+}
+    
+}
 }
 void Shuffle()
 {

@@ -28,7 +28,7 @@ sciana[5].rodzajsciany='d';
 noLoop();
 }
 void draw(){
-
+kosteczka[24].wielkosc=15;
 
  background(255,255,255);
  translate(width/2,height/2);
@@ -113,11 +113,7 @@ redraw();
   kierunki='l';
   if(key=='q')
   {
-algorytmmanager.BialyKrzyz(7);
-algorytmmanager.BialyKrzyz(15);
-     algorytmmanager.BialyKrzyz(17);
-algorytmmanager.BialyKrzyz(25);
-algorytmmanager.BialyKrzyz();
+algorytmmanager.BialeRogi();
 
 }
 
