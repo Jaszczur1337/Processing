@@ -113,14 +113,14 @@ redraw();
   kierunki='l';
   if(key=='q')
   {
-    
-     algorytmmanager.BialyKrzyz(1);
-     algorytmmanager.BialyKrzyz(9);
-     algorytmmanager.BialyKrzyz(11);
- algorytmmanager.BialyKrzyz(19);
-
+algorytmmanager.BialyKrzyz(7);
+algorytmmanager.BialyKrzyz(15);
+     algorytmmanager.BialyKrzyz(17);
+algorytmmanager.BialyKrzyz(25);
+algorytmmanager.BialyKrzyz();
 
 }
+
   if(key=='g')
   algorytmmanager.Shuffle();
   

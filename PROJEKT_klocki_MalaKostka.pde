@@ -5,12 +5,12 @@ class MalaKostka
   MalaKostka(int duzosc)
   {
    wielkosc=duzosc;
-   frontowy=color(255,0,0);
-   prawy=color (0,0,255);
-   tylny=color(255,128,0);
-   dolny=color(255,255,0);
-   lewy=color(0,255,0);
-   gorny=color(255,255,255);
+   frontowy=#ff0000;
+   prawy=#0000ff;
+   tylny=#fe7f00;
+   gorny=#ffff00;
+   lewy=#00c700;
+   dolny=#ffffff;
   }
   Kordy kordy;
   
