@@ -113,6 +113,8 @@ void keyPressed() {
     algorytmmanager.BialyKrzyz(17);
     algorytmmanager.BialyKrzyz(25);
     algorytmmanager.BialyKrzyz();
+    algorytmmanager.BialeRogi();
+   print("lol");
    
   }
 
@@ -149,8 +151,6 @@ void keyPressed() {
 
     sciana[algorytmmanager.down].obracanie(kierunki);
   }
-  if(key=='o')
-  algorytmmanager.BialeRogi();
   if (key=='x')
   {
 

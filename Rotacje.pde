@@ -194,8 +194,7 @@ void BialyKrzyz()
 }
 void BialeRogi()
 {
-  while(!(kosteczka[24].kordy.compare(-20,20,20) && kosteczka[24].dolny!=#ffffff) || !(kosteczka[26].kordy.compare(20,20,20) && kosteczka[26].dolny!=#ffffff) || !(kosteczka[6].kordy.compare(-20,20,-20) && kosteczka[26].dolny!=#ffffff) || !(kosteczka[8].kordy.compare(20,20,-20) && kosteczka[8].dolny!=#ffffff) )
-  {
+  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   kosteczka[24].wielkosc=15;
   if(!kosteczka[24].kordy.compare(-20,20,20)) //JEŻELI NIE JEST NA POZYCJI
@@ -303,7 +302,8 @@ Interpreter("liuilu",500);
 }
 kosteczka[8].wielkosc=10;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  }
+  if((!kosteczka[24].kordy.compare(-20,20,20) && kosteczka[24].dolny!=#ffffff) || (!kosteczka[26].kordy.compare(20,20,20) && kosteczka[26].dolny!=#ffffff) || (!kosteczka[6].kordy.compare(-20,20,-20) && kosteczka[26].dolny!=#ffffff) || (!kosteczka[8].kordy.compare(20,20,-20) && kosteczka[8].dolny!=#ffffff) )
+  BialeRogi();
 }
 void Shuffle()
 {
