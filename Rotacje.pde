@@ -305,6 +305,80 @@ kosteczka[8].wielkosc=10;
   if((!kosteczka[24].kordy.compare(-20,20,20) && kosteczka[24].dolny!=#ffffff) || (!kosteczka[26].kordy.compare(20,20,20) && kosteczka[26].dolny!=#ffffff) || (!kosteczka[6].kordy.compare(-20,20,-20) && kosteczka[26].dolny!=#ffffff) || (!kosteczka[8].kordy.compare(20,20,-20) && kosteczka[8].dolny!=#ffffff) )
   BialeRogi();
 }
+void SrodkowyRzad(int numerkostki)  //3,5,21,23
+{
+  if(numerkostki==3)
+  {
+   if(kosteczka[3].kordy.compare('y',-20)) //JEŻELI JEST W GÓRNYM RZĘDZIE
+   {
+     while(kosteczka[3].kordy.z!=-20) //DOPÓKI NIE JEST NA TYLNEJ (WŁAŚCIWEJ) ŚCIANIE
+     Interpreter("u",500);
+     kameray=180;
+     redraw();
+     Interpreter("uruiriuifiuf",500);
+   }
+   else
+   {
+    SrodkowyRzadWyrzucanie();
+   }
+  }
+  if(numerkostki==5)
+  {
+   if(kosteczka[5].kordy.compare('y',-20)) //JEŻELI JEST W GÓRNYM RZĘDZIE
+   {
+     while(kosteczka[5].kordy.z!=-20) //DOPÓKI NIE JEST NA TYLNEJ (WŁAŚCIWEJ) ŚCIANIE
+     Interpreter("u",500);
+     kameray=180;
+     redraw();
+     Interpreter("uiliulufuifi",500);
+   }
+   else
+   {
+    SrodkowyRzadWyrzucanie();
+   }
+  }
+  if(numerkostki==21)
+  {
+   if(kosteczka[21].kordy.compare('y',-20)) 
+   {
+     while(kosteczka[21].kordy.z!=20) 
+     Interpreter("u",500);
+     kameray=0;
+     redraw();
+     Interpreter("uiliulufuifi",500);
+   }
+   else
+   {
+    SrodkowyRzadWyrzucanie();
+   }
+  }
+  if(numerkostki==23)
+  {
+   if(kosteczka[23].kordy.compare('y',-20)) //JEŻELI JEST W GÓRNYM RZĘDZIE
+   {
+     while(kosteczka[23].kordy.z!=20) //DOPÓKI NIE JEST NA TYLNEJ (WŁAŚCIWEJ) ŚCIANIE
+     Interpreter("u",500);
+     kameray=0;
+     redraw();
+     Interpreter("uruiriuifiuf",500);
+   }
+   else
+   {
+    SrodkowyRzadWyrzucanie();
+   }
+  }
+}
+void SrodkowyRzadWyrzucanie()
+{
+  if(kosteczka[3].kordy.z==-20 && kosteczka[3].kordy.x==-20)
+    //DO ZROBIENIA
+    if(kosteczka[3].kordy.z==-20 && kosteczka[3].kordy.x==20)
+    //DO ZROBIENIA
+    if(kosteczka[3].kordy.z==20 && kosteczka[3].kordy.x==-20)
+    //DO ZROBIENIA
+    if(kosteczka[3].kordy.z==20 && kosteczka[3].kordy.x==20)
+    //DO ZROBIENIA
+}
 void Shuffle()
 {
   String builder="f";

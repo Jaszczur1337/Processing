@@ -1,5 +1,5 @@
 int kamerax, kameray;
-int i, lastTime, nowtime; 
+int i, lastTime, nowtime,plus; 
 char keycode, kierunki;
 boolean juzbylo;
 MalaKostka kosteczka[]=new MalaKostka[27];
@@ -28,7 +28,7 @@ void setup() {
   noLoop();
 }
 void draw() {
-
+print(plus);
 
   background(255, 255, 255);
   translate(width/2, height/2);
@@ -155,6 +155,13 @@ void keyPressed() {
   {
 
     restart();
+  }
+  if(key=='+')
+  {
+   algorytmmanager.SrodkowyRzad(3);
+   algorytmmanager.SrodkowyRzad(5);
+   algorytmmanager.SrodkowyRzad(21);
+   algorytmmanager.SrodkowyRzad(23);
   }
 }
 
