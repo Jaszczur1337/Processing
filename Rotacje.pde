@@ -187,28 +187,123 @@ void BialyKrzyz()
   while(kosteczka[17].prawy!=#0000ff)
  Interpreter("u",500);
  Interpreter("rr",500);
-  while(kosteczka[17].frontowy!=#ff0000)
+  while(kosteczka[25].frontowy!=#ff0000)
  Interpreter("u",500);
  Interpreter("ff",500);
  
 }
 void BialeRogi()
 {
-  if(!kosteczka[24].kordy.compare(-20,20,20))
+  while(!(kosteczka[24].kordy.compare(-20,20,20) && kosteczka[24].dolny!=#ffffff) || !(kosteczka[26].kordy.compare(20,20,20) && kosteczka[26].dolny!=#ffffff) || !(kosteczka[6].kordy.compare(-20,20,-20) && kosteczka[26].dolny!=#ffffff) || !(kosteczka[8].kordy.compare(20,20,-20) && kosteczka[8].dolny!=#ffffff) )
   {
-    if(kosteczka[24].kordy.compare('y',-20))
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  kosteczka[24].wielkosc=15;
+  if(!kosteczka[24].kordy.compare(-20,20,20)) //JEŻELI NIE JEST NA POZYCJI
+  {
+    if(kosteczka[24].kordy.compare('y',-20)) // JEŻELI JEST NA GÓRZE
     {
-while(!kosteczka[24].kordy.compare('x',-20) || !kosteczka[24].kordy.compare('z',20))
+while(!kosteczka[24].kordy.compare('x',-20) || !kosteczka[24].kordy.compare('z',20)) // DOPÓKI NIE JEST NA ODPOWIEDNIM X I Z
 Interpreter("u",500);
 kameray=42;
-while(kosteczka[24].dolny!=#ffffff)
+while(kosteczka[24].dolny!=#ffffff) // DOPÓKI BIAŁY NIE JEST NA DOLE
 {
-Interpreter("luliui",1000);
+Interpreter("liuilu",500);
 print("koniec");
 }
+
+}  
+}
+if(kosteczka[24].kordy.compare(-20,20,20) && kosteczka[24].dolny!=#ffffff) // JEŻELI JEST NA POZYCJI ALE ŹLE OBRÓCONY
+{kameray=42;
+  while(kosteczka[24].dolny!=#ffffff) // DOPÓKI BIAŁY NIE JEST NA DOLE
+{
+Interpreter("liuilu",500);
+}
+}
+kosteczka[24].wielkosc=10;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+kosteczka[26].wielkosc=15;
+if(!kosteczka[26].kordy.compare(20,20,20))
+  {
+    if(kosteczka[26].kordy.compare('y',-20))
+    {
+while(!kosteczka[26].kordy.compare('x',20) || !kosteczka[26].kordy.compare('z',20))
+Interpreter("u"/*talon na k*** i balon*/,500);
+kameray=-45;
+while(kosteczka[26].dolny!=#ffffff)
+{
+Interpreter("liuilu",500);
+print("koniec");
+}
+
 }
     
 }
+if(kosteczka[26].kordy.compare(20,20,20) && kosteczka[26].dolny!=#ffffff) // JEŻELI JEST NA POZYCJI ALE ŹLE OBRÓCONY
+{
+  kameray=-45;
+  while(kosteczka[26].dolny!=#ffffff) // DOPÓKI BIAŁY NIE JEST NA DOLE
+{  
+Interpreter("liuilu",500);
+}
+}
+kosteczka[26].wielkosc=10;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+kosteczka[6].wielkosc=15;
+if(!kosteczka[6].kordy.compare(-20,20,-20))
+  {
+    if(kosteczka[6].kordy.compare('y',-20))
+    {
+while(!kosteczka[6].kordy.compare('x',-20) || !kosteczka[6].kordy.compare('z',-20))
+Interpreter("u",500);
+kameray=132;
+while(kosteczka[6].dolny!=#ffffff)
+{
+Interpreter("liuilu",500);
+print("koniec");
+}
+
+}
+    
+}
+if(kosteczka[6].kordy.compare(-20,20,-20) && kosteczka[26].dolny!=#ffffff) // JEŻELI JEST NA POZYCJI ALE ŹLE OBRÓCONY
+{
+  kameray=132;
+  while(kosteczka[6].dolny!=#ffffff) // DOPÓKI BIAŁY NIE JEST NA DOLE
+{  
+Interpreter("liuilu",500);
+}
+}
+kosteczka[6].wielkosc=10;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+kosteczka[8].wielkosc=15;
+if(!kosteczka[8].kordy.compare(20,20,-20))
+  {
+    if(kosteczka[8].kordy.compare('y',-20))
+    {
+while(!kosteczka[8].kordy.compare('x',20) || !kosteczka[8].kordy.compare('z',-20))
+Interpreter("u",500);
+kameray=222;
+while(kosteczka[8].dolny!=#ffffff)
+{
+Interpreter("liuilu",500);
+print("koniec");
+}
+
+}
+    
+}
+if(kosteczka[8].kordy.compare(20,20,-20) && kosteczka[8].dolny!=#ffffff) // JEŻELI JEST NA POZYCJI ALE ŹLE OBRÓCONY
+{
+  kameray=222;
+  while(kosteczka[8].dolny!=#ffffff) // DOPÓKI BIAŁY NIE JEST NA DOLE
+{  
+Interpreter("liuilu",500);
+}
+}
+kosteczka[8].wielkosc=10;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  }
 }
 void Shuffle()
 {
