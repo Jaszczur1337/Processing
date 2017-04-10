@@ -114,6 +114,10 @@ void keyPressed() {
     algorytmmanager.BialyKrzyz(25);
     algorytmmanager.BialyKrzyz();
     algorytmmanager.BialeRogi();
+    algorytmmanager.SrodkowyRzad(3);
+   algorytmmanager.SrodkowyRzad(5);
+   algorytmmanager.SrodkowyRzad(21);
+   algorytmmanager.SrodkowyRzad(23);
    print("lol");
    
   }
@@ -156,12 +160,9 @@ void keyPressed() {
 
     restart();
   }
-  if(key=='+')
+  if(key=='o')
   {
-   algorytmmanager.SrodkowyRzad(3);
-   algorytmmanager.SrodkowyRzad(5);
-   algorytmmanager.SrodkowyRzad(21);
-   algorytmmanager.SrodkowyRzad(23);
+   algorytmmanager.ZoltyKrzyz();
   }
 }
 
