@@ -122,6 +122,7 @@ if(kosteczka[numerkostki].dolny!=#ffffff)
             {
             kameray=180;
             Interpreter("f",delay);
+            kameray=0;
             }
          }
        if(kosteczka[numerkostki].tylny==#ffffff)
@@ -308,6 +309,7 @@ kosteczka[8].wielkosc=10;
 }
 void SrodkowyRzad(int numerkostki)  //3,5,21,23
 {
+  
   kosteczka[numerkostki].wielkosc=15;
   if(numerkostki==3)
   {
@@ -411,6 +413,7 @@ void SrodkowyRzad(int numerkostki)  //3,5,21,23
    }
   }
   kosteczka[numerkostki].wielkosc=10;
+  
 }
 void SrodkowyRzadWyrzucanie(int numerkostki)
 {
@@ -437,26 +440,118 @@ void SrodkowyRzadWyrzucanie(int numerkostki)
 }
 void ZoltyKrzyz()
 {
-  boolean kostki[]=new boolean[4];
-  kostki[0]=false; // 1
-  kostki[1]=false; // 9
-  kostki[2]=false; // 11
-  kostki[3]=false; // 19
+  //1,9,11,19
   kameray=0;
-  redraw();
-  while(!kostki[0] || !kostki[1] || !kostki[2] || !kostki[3])
+  while(true)
   {
-    Interpreter("fruriuifi",500);
-    if(kosteczka[1].gorny==#ffff00)
-    kostki[0]=true;
-    if(kosteczka[9].gorny==#ffff00)
-    kostki[1]=true;
-    if(kosteczka[11].gorny==#ffff00)
-    kostki[2]=true;
-    if(kosteczka[19].gorny==#ffff00)
-    kostki[3]=true;
-    
+    if(kosteczka[szukaniepopozycji(-20,-20,0)].gorny==#ffff00 && kosteczka[szukaniepopozycji(0,-20,-20)].gorny==#ffff00)
+    {
+      Interpreter("furuirifi",delay);
+      break;
+    }
+    if(kosteczka[szukaniepopozycji(0,-20,-20)].gorny==#ffff00 && kosteczka[szukaniepopozycji(20,-20,0)].gorny==#ffff00)
+    {
+      Interpreter("uifuruirifi",delay);
+      break;
+    }
+    if(kosteczka[szukaniepopozycji(20,-20,0)].gorny==#ffff00 && kosteczka[szukaniepopozycji(0,-20,20)].gorny==#ffff00)
+    {
+      Interpreter("uufuruirifi",delay);
+      break;
+    }
+    if(kosteczka[szukaniepopozycji(0,-20,20)].gorny==#ffff00 && kosteczka[szukaniepopozycji(-20,-20,0)].gorny==#ffff00)
+    {
+      Interpreter("ufuruirifi",delay);
+      break;
+    }
+    Interpreter("fruriuifi",delay);
+  }
+  while(!kosteczka[19].kordy.compare(0,-20,20))
+  Interpreter("u",delay);
+  if(szukaniepopozycji(-20,-20,0)!=9)
+  {
+   if(kosteczka[9].kordy.compare(20,-20,0))
+   {
+     kameray=180;
+     Interpreter("ruriuruuriu",delay);
+   }
+   kameray=90;
+   Interpreter("ruriuruuriu",delay);
+  }
+  if(szukaniepopozycji(0,-20,-20)!=1)
+  {
+    kameray=180;
+    Interpreter("ruriuruuriu",delay);
+  }
+  
+  
 }
+void ZolteRogi()
+{
+ //0,2,18,20
+ if(szukaniepopozycji(-20,-20,-20)!=0 && szukaniepopozycji(20,-20,-20)!=2 && szukaniepopozycji(-20,-20,20)!=18 && szukaniepopozycji(20,-20,20)!=20)
+ {
+   ZolteRogiPowtorz(0);
+ }
+ if(szukaniepopozycji(-20,-20,-20)==0)
+ {
+   ZolteRogiPowtorz(180);
+ }
+ if(szukaniepopozycji(20,-20,-20)==2)
+ {
+   ZolteRogiPowtorz(-90);
+ }
+ if(szukaniepopozycji(-20,-20,20)==18)
+ {
+   ZolteRogiPowtorz(90);
+ }
+ if(szukaniepopozycji(20,-20,20)==20)
+ {
+   ZolteRogiPowtorz(0);
+ }
+//Wszystkie sa na pozycji
+if(kosteczka[0].gorny!=#ffff00)
+{
+ while(!kosteczka[0].kordy.compare(20,-20,20))
+ Interpreter("u",delay);
+ while(kosteczka[0].gorny!=#ffff00)
+ Interpreter("ridird",delay);
+}
+if(kosteczka[2].gorny!=#ffff00)
+{
+ while(!kosteczka[2].kordy.compare(20,-20,20))
+ Interpreter("u",delay);
+ while(kosteczka[2].gorny!=#ffff00)
+ Interpreter("ridird",delay);
+}
+ if(kosteczka[18].gorny!=#ffff00)
+{
+ while(!kosteczka[18].kordy.compare(20,-20,20))
+ Interpreter("u",delay);
+ while(kosteczka[18].gorny!=#ffff00)
+ Interpreter("ridird",delay);
+}
+if(kosteczka[20].gorny!=#ffff00)
+{
+ while(!kosteczka[20].kordy.compare(20,-20,20))
+ Interpreter("u",delay);
+ while(kosteczka[20].gorny!=#ffff00)
+ Interpreter("ridird",delay);
+}
+while(kosteczka[0].frontowy!=#ff0000)
+Interpreter("u",delay);
+}
+void ZolteRogiPowtorz(int x)
+{
+  kameray=x;
+  redraw();
+  while(szukaniepopozycji(-20,-20,-20)!=0 || szukaniepopozycji(20,-20,-20)!=2 || szukaniepopozycji(-20,-20,20)!=18 || szukaniepopozycji(20,-20,20)!=20)
+ {
+  
+   Interpreter("uruiliuriuil",delay);
+ }
+ kameray=0;
+ redraw();
 }
 void Shuffle()
 {

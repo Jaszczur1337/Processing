@@ -118,6 +118,13 @@ void keyPressed() {
    algorytmmanager.SrodkowyRzad(5);
    algorytmmanager.SrodkowyRzad(21);
    algorytmmanager.SrodkowyRzad(23);
+   algorytmmanager.SrodkowyRzad(3);
+   algorytmmanager.SrodkowyRzad(5);
+   algorytmmanager.SrodkowyRzad(21);
+   algorytmmanager.SrodkowyRzad(23);
+   algorytmmanager.ZoltyKrzyz();
+   algorytmmanager.ZolteRogi();
+   
    print("lol");
    
   }
@@ -162,7 +169,7 @@ void keyPressed() {
   }
   if(key=='o')
   {
-   algorytmmanager.ZoltyKrzyz();
+   
   }
 }
 
@@ -209,6 +216,18 @@ int szukaniepopozycji(int x, int y, int z, int numerkostki)
     if (kosteczka[i].kordy.compare(x, y, z))
     {
       if (i!=numerkostki)
+        return i;
+    }
+  }
+  return -1;
+}
+int szukaniepopozycji(int x, int y, int z)
+{
+  for (int i=0; i<27; i++)
+  {
+    if (kosteczka[i].kordy.compare(x, y, z))
+    {
+      
         return i;
     }
   }
