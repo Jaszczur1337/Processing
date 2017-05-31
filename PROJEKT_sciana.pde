@@ -3,8 +3,18 @@ class Sciana
   char rodzajsciany;
   Kordy kordycom[]=new Kordy[9];
   int pomarancze[]=new int[9];
+  int ile;
+  PImage szczalka;
+  Sciana(char rodzaj,int co)
+  {
+    ile=co;
+    rodzajsciany=rodzaj;
+
+  }
   void przypisywanie() // Do każdej ściany przypisane jest 9 kosteczek na podstawie ich pozycji
   {
+    //////////////////////////////////////////////////////////////////////////////////////////
+    if(ile==3){
     if(rodzajsciany=='f') 
     {
       kordycom[0]=new Kordy(-20,-20,20);
@@ -121,28 +131,110 @@ if(kosteczka[i].kordy!=null)
     }
 }
    }
+   
+   
+  }
+  //////////////////////////////////////////////////////////////
+  if(ile==2)
+  {
+    if(rodzajsciany=='f') 
+    {
+      kordycom[0]=new Kordy(-10,-10,10);
+      kordycom[1]=new Kordy(10,-10,10);
+      kordycom[2]=new Kordy(-10,10,10);
+      kordycom[3]=new Kordy(10,10,10);
+      
+    }  
+    if(rodzajsciany=='l')
+    {
+      kordycom[0]=new Kordy(-10,-10,-10);
+      kordycom[1]=new Kordy(-10  ,-10 , 10);
+      kordycom[2]=new Kordy(-10  ,10 , -10);
+      kordycom[3]=new Kordy(-10  ,10 , 10);
+     
+    } 
+    if(rodzajsciany=='r')
+    {
+      kordycom[0]=new Kordy(10,-10,10);
+      kordycom[1]=new Kordy(10  ,-10 , -10);
+      kordycom[2]=new Kordy(10  ,10 ,10);
+      kordycom[3]=new Kordy(10  ,10 , -10);
+     
+    } 
+    if(rodzajsciany=='b')
+    {
+      kordycom[0]=new Kordy(10,-10,-10);
+      kordycom[1]=new Kordy(-10,-10,-10);
+      kordycom[2]=new Kordy(10,10,-10);
+      kordycom[3]=new Kordy(-10,10,-10);
+      
+    } 
+    
+        if(rodzajsciany=='u')
+    {
+      kordycom[0]=new Kordy(-10,-10,-10);
+      kordycom[1]=new Kordy(10,-10,-10);
+      kordycom[2]=new Kordy(-10,-10,10);
+      kordycom[3]=new Kordy(10,-10,10);
+      
+    } 
+        if(rodzajsciany=='d')
+    {
+      kordycom[0]=new Kordy(-10,10,10);
+      kordycom[1]=new Kordy(10,10,10);
+      kordycom[2]=new Kordy(-10,10,-10);
+      kordycom[3]=new Kordy(10,10,-10);
+     
+    } 
+    
+   for(int i=0;i<8;i++)
+   {
+    if(kosteczka[i].kordy.compare(kordycom[0]))
+    {
+      pomarancze[0]=i; 
+    }
+    if(kosteczka[i].kordy.compare(kordycom[1]))
+    {
+      pomarancze[1]=i;
+    }
+    if(kosteczka[i].kordy.compare(kordycom[2]))
+    {
+      pomarancze[2]=i;
+    }
+    if(kosteczka[i].kordy.compare(kordycom[3]))
+    {
+      pomarancze[3]=i;
+    }
+   } 
+    
+    
+    
+    
+  }
     
     }  
   void obracanie(char kierunek)
   {
+ 
  przypisywanie();
  if(rodzajsciany=='f')
  {
-for(int i=0;i<9;i++)
+   
+for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjafrontowa(kierunek); 
 }
  }
  if(rodzajsciany=='l')
  {
-   for(int i=0;i<9;i++)
+   for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjalewa(kierunek);
 }
  }
   if(rodzajsciany=='r')
  {
-for(int i=0;i<9;i++)
+for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjaprawa(kierunek);
 }
@@ -150,25 +242,28 @@ for(int i=0;i<9;i++)
  }
   if(rodzajsciany=='b')
  {
-for(int i=0;i<9;i++)
+for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjatylna(kierunek); 
 }
  }
   if(rodzajsciany=='u')
  {
-for(int i=0;i<9;i++)
+for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjagorna(kierunek);
 }
  }
   if(rodzajsciany=='d')
  {
-for(int i=0;i<9;i++)
+for(int i=0;i<ile*ile;i++)
 {
  kosteczka[pomarancze[i]].rotacjadolna(kierunek);
 }
  }
+ if(ile==3)
+ {
+
  if(kierunek=='r') // Przy obracaniu w prawo, lewa-górna kosteczka przeskakuje na pozycje prawej górnej itd.
  {
  kosteczka[pomarancze[0]].kordy=kordycom[2];
@@ -192,8 +287,30 @@ for(int i=0;i<9;i++)
    kosteczka[pomarancze[8]].kordy=kordycom[2];
   }
    kierunki='r';
-  redraw();
    
+  redraw();
+ }
+ if(ile==2)
+ {
+
+   if(kierunek=='r')
+   {
+    kosteczka[pomarancze[0]].kordy=kordycom[1];
+   kosteczka[pomarancze[1]].kordy=kordycom[3];
+   kosteczka[pomarancze[2]].kordy=kordycom[0];
+   kosteczka[pomarancze[3]].kordy=kordycom[2];
+   }
+   else
+   {
+     kosteczka[pomarancze[0]].kordy=kordycom[2];
+   kosteczka[pomarancze[1]].kordy=kordycom[0];
+   kosteczka[pomarancze[2]].kordy=kordycom[3];
+   kosteczka[pomarancze[3]].kordy=kordycom[1];
+   }
+   kierunki='r';
+   
+   redraw();
+ }
   }
   
   
